@@ -1,4 +1,4 @@
-// LEONIDA LEDGER — GTA VI trophy guide & tracker.
+// LEONIDA CODEX — GTA VI trophy guide & tracker.
 // All 55 guides live in data/trophies.json (official names/descriptions, original guides with
 // numbered steps and inline citations [1]-[7]). Progress, counters and the spoiler setting are
 // saved in localStorage; nothing leaves the browser. Fully offline: no external URLs anywhere.
@@ -170,7 +170,7 @@ function renderChecklist() {
       name.textContent = 'Hidden trophy';
       const desc = document.createElement('div');
       desc.className = 'tl-desc';
-      desc.textContent = 'Hidden until earned — turn spoilers off or reveal it to read the guide.';
+      desc.textContent = 'Hidden until earned — turn spoilers off, or reveal it to read the guide.';
       body.append(name, desc);
     } else {
       const name = document.createElement('div');
@@ -492,8 +492,8 @@ function applyTab(tab) {
 
 function exportProgress() {
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([JSON.stringify({ app: 'LEONIDA LEDGER', earned: [...earned], counts }, null, 2)], { type: 'application/json' }));
-  a.download = 'leonida-ledger-progress.json';
+  a.href = URL.createObjectURL(new Blob([JSON.stringify({ app: 'LEONIDA CODEX', earned: [...earned], counts }, null, 2)], { type: 'application/json' }));
+  a.download = 'leonida-codex-progress.json';
   a.click();
 }
 
@@ -512,7 +512,7 @@ async function importProgress(file) {
     renderGuidePane();
     renderRoadmap();
   } catch {
-    alert('That file is not a LEONIDA LEDGER progress export.');
+    alert('That file is not a LEONIDA CODEX progress export.');
   }
 }
 

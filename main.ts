@@ -1,4 +1,4 @@
-// LEONIDA LEDGER — the entry program for gta6-trophy-guide-01 (Node 22, standard library only).
+// LEONIDA CODEX — the entry program for gta6-trophy-guide-01 (Node 22, standard library only).
 // The guide itself is plain static files in app/ (index.html + app.js + style.css + data/trophies.json),
 // opened at app/index.html, fully offline: it loads nothing over the network, and every source it
 // cites is listed by name in the app. This program hands the entry in: it copies app/ and
