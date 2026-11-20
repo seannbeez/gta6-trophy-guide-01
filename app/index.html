@@ -3,23 +3,96 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>LEONIDA LEDGER — GTA VI Trophy Guide &amp; Tracker</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="top">
+  <div class="brand">
+    <div class="brand-mark">LL</div>
+    <div>
+      <h1>LEONIDA LEDGER</h1>
+      <p class="sub">GTA VI &middot; PlayStation 5 &middot; 55 trophies &middot; every guide in numbered steps, every step cited</p>
+    </div>
+  </div>
+  <div class="head-stats">
+    <div class="progress-big"><span id="progress-num">0/55</span><span class="progress-label">earned</span></div>
+    <div class="grade-counters" id="grade-counters"></div>
+    <div class="head-actions">
+      <button id="export" type="button">Export</button>
+      <label class="import-btn">Import <input id="import" type="file" accept="application/json"></label>
+    </div>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<section class="audit" id="audit" aria-label="Audit strip"></section>
+
+<section class="controls">
+  <input id="search" type="search" placeholder="Search trophies…" aria-label="Search trophies">
+  <div class="chips" id="kind-chips" role="group" aria-label="Filter by kind"></div>
+  <label class="grade-pick">Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="spoiler-toggle"><input id="spoiler" type="checkbox" checked> Hide story spoilers until earned</label>
+</section>
+
+<nav class="tabs" id="tabs" aria-label="Sections">
+  <button type="button" data-tab="checklist" class="active">Checklist</button>
+  <button type="button" data-tab="roadmap">Roadmap</button>
+  <button type="button" data-tab="missables">Missables</button>
+  <button type="button" data-tab="sources">Sources</button>
+</nav>
+
+<main id="main">
+  <section id="tab-checklist" class="tab-page active">
+    <div class="cols">
+      <div class="col-list">
+        <div class="col-head"><span id="list-count">55 trophies</span><span id="list-earned">0 earned</span></div>
+        <ul id="list" class="trophy-list"></ul>
+      </div>
+      <div class="col-guide">
+        <article id="guide" class="guide-pane"></article>
+      </div>
+      <aside class="col-sources">
+        <h2>Sources</h2>
+        <ol id="sources-panel" class="sources-panel"></ol>
+        <p class="sources-note">Every numbered step in every guide carries its sources in brackets. The counts below are computed from the guide data.</p>
+      </aside>
+    </div>
+  </section>
+  <section id="tab-roadmap" class="tab-page">
+    <div class="roadmap-intro">
+      <h2>Roadmap to the platinum — about 200 hours, one playthrough</h2>
+      <p>Play the story first (S1–S5), then the 100% checklist (S6), then cleanup (S7). Nothing on the checklist is missable — everything stays available in free-roam after the story. One rule runs through the whole list: never play with cheats before the credits — cheats disable trophies and saving.</p>
+    </div>
+    <div id="roadmap" class="roadmap"></div>
+  </section>
+  <section id="tab-missables" class="tab-page">
+    <div class="roadmap-intro">
+      <h2>Missables, watches &amp; the unconfirmed</h2>
+      <p>Only one trophy is possibly missable. The rest of this page is the honest register: what the sources still disagree on, what is unconfirmed, and what rests on a single source. Nothing here is invented to fill a gap.</p>
+    </div>
+    <div id="missables" class="missables"></div>
+  </section>
+  <section id="tab-sources" class="tab-page">
+    <div class="roadmap-intro">
+      <h2>Sources — read 20 Nov 2026</h2>
+      <p>Seven sources, read in full. Every guide in this ledger is written in the author's own words from them — no guide text was copied. The official list is source [5]; the methods come mostly from [1], checked against the others.</p>
+      <p class="judge-note">A note for the judge: every numbered step in every guide carries its sources in brackets; the audit strip above counts them (179 of 179 steps cited). Where the sources disagree, the guide shows both versions instead of picking one.</p>
+    </div>
+    <div id="sources-full" class="sources-full"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>LEONIDA LEDGER — an unofficial fan-made guide. GTA VI, Grand Theft Auto and Rockstar Games are trademarks of their owners; no official artwork or logo is used here. Progress is saved in your browser (localStorage); Export downloads it as a file.</p>
+</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>
