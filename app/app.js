@@ -1,10 +1,10 @@
 // LEONIDA CODEX — GTA VI trophy guide & tracker.
-// All 55 guides live in data/trophies.json (official names/descriptions, original guides with
-// numbered steps and inline citations [1]-[7]). Progress, counters and the spoiler setting are
+// All 55 guides live in data/trophies.json (official names and descriptions, original guides in
+// numbered steps with inline citations [1]-[7]). Progress, counters and the spoiler setting are
 // saved in localStorage; nothing leaves the browser. Fully offline: no external URLs anywhere.
-const EARNED_KEY = 'leonida-ledger-earned';
-const COUNTS_KEY = 'leonida-ledger-counts';
-const SPOILER_KEY = 'leonida-ledger-spoilers';
+const EARNED_KEY = 'leonida-codex-earned';
+const COUNTS_KEY = 'leonida-codex-counts';
+const SPOILER_KEY = 'leonida-codex-spoilers';
 const params = new URLSearchParams(location.search);
 
 const ROADMAP = [
@@ -256,7 +256,7 @@ function renderGuidePane() {
   badge.className = `badge ${t.grade}`;
   badge.textContent = t.grade;
   chips.append(badge);
-  for (const [label, cls] of [[KIND_LABELS[t.kind] ?? t.kind, ''], [t.stage, ''], [t.hidden ? 'hidden' : null, '']]) {
+  for (const [label] of [[KIND_LABELS[t.kind] ?? t.kind], [t.stage], [t.hidden ? 'hidden' : null]]) {
     if (!label) continue;
     const s = document.createElement('span');
     s.className = 'tag';
